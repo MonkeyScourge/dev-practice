@@ -1,2 +1,1 @@
-# dev-practice
-# test
+# DevOps Practice Repo
