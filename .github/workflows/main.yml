@@ -1,0 +1,17 @@
+name: First Pipeline
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out code
+        uses: actions/checkout@v3
+
+      - name: Running Script
+        runs: bash script.sh
+
+      - name: Building Docker Image
+        runs: docker build -t first-image .
