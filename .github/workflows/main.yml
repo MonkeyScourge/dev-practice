@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Running Script
-        runs: bash script.sh
+        run: bash script.sh
 
       - name: Building Docker Image
-        runs: docker build -t first-image .
+        run: docker build -t first-image .
