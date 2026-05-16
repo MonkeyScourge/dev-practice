@@ -5,19 +5,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout Code
-          run: actions/checkout/@v4
+    steps:
+      - name: Checkout Code
+        run: actions/checkout/@v4
 
           # using docker repo secrets
           # piping token to login because
           # we can use --password_stdin to securely use token
-        - name: Login to DockerHub
-          run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
           # building and pushing image to dockerhub
-        - name: Build Image
-          run: docker build -t ${{ secrets.DOCKERUB_USERNAME }}/first-image .
+      - name: Build Image
+        run: docker build -t ${{ secrets.DOCKERUB_USERNAME }}/first-image .
 
-        - name: Push Image to Dockerhub
-          run: docker push ${{ secret.DOCKER_USERNAME }}/first-image
+      - name: Push Image to Dockerhub
+        run: docker push ${{ secret.DOCKER_USERNAME }}/first-image
